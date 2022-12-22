@@ -5,6 +5,7 @@ public class MainMachine {
         Employee egorTheCreator = new Employee("Aleks", 900000, 1);
         System.out.println(Employee.allToString());
         System.out.println("The sum of month salary for all workers is: " + Employee.getMonthSalary() + "\n");
-        System.out.println("The minimal Salary has" + Employee.minMonthSalary());
+        System.out.println("The minimal Salary has" + Employee.minMonthSalary() + "\n");
+        System.out.println("The max Salary has" + Employee.maxMonthSalary());
     }
 }

@@ -69,4 +69,15 @@ public class Employee {
         }
         return Information[l].replace("Name","");
     }
+    public static String maxMonthSalary() {
+        int max = allSalaryMassive[0];
+        int l = 0;
+        for (int i = 0; i < id; i++) {
+            if (max < allSalaryMassive[i]) {
+                max = allSalaryMassive[i];
+                l = i;
+            }
+        }
+        return Information[l].replace("Name","");
+    }
 }
