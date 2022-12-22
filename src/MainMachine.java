@@ -1,8 +1,8 @@
 public class MainMachine {
     public static void main(String[] args) {
-        Employee sasha = new Employee("Sasha", 50000, 3);
-        Employee aleksSasha = new Employee("Aleks", 70000, 4);
-        Employee egorTheCreator = new Employee("Aleks", 900000, 1);
+        Employee sashaVladich = new Employee("Vladich Alexandra Fromskaya", 50000, 3);
+        Employee alexAlexandrovskiy = new Employee("Alexandrovskiy Alex Rubanov", 70000, 4);
+        Employee egorTheCreator = new Employee("Kudlay Egor Vladimirovich", 900000, 1);
         System.out.println(Employee.allToString());
         System.out.println("The sum of month salary for all workers is: " + Employee.getMonthSalary());
         Employee.space();
@@ -12,6 +12,6 @@ public class MainMachine {
         Employee.space();
         System.out.println("middle month salary is " + Employee.middleValueSalary());
         Employee.space();
-        System.out.println();
+        System.out.println("Full names of all workers: " + Employee.getFullNames());
     }
 }

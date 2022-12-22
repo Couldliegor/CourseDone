@@ -1,4 +1,5 @@
 import javax.swing.*;
+
 public class Employee {
     private String name;
     private int salary;
@@ -8,7 +9,9 @@ public class Employee {
     private static int monthSalary = 0;
     public static String[] Employee = new String[10];
     public static String[] Information = new String[10];
+    public static String[] fullName = new String[10];
     public static int[] allSalaryMassive = new int[10];
+
     public Employee(String name, int salary, int department) {
         if (department < 1 || department > 5) {
             throw new RuntimeException("ERROR");
@@ -18,6 +21,7 @@ public class Employee {
         this.department = department;
         information = "Name " + name + " , Salary " + salary + " , Department " + department + ".";
         Information[id] = information;
+        fullName[id] = name;
         allSalaryMassive[id] = salary;
         id++;
     }
@@ -45,9 +49,9 @@ public class Employee {
     public static String allToString() {
         String information1 = null;
         for (int i = 0; i < id; i++) {
-           information1 = information1 + Information[i] + "\n";
+            information1 = information1 + Information[i] + "\n";
         }
-        return information1.replace("null" , ""); // ибо я не знаю откуда этот null в начале при запусе for, поэтому я не нашел способа ениальнее )))
+        return information1.replace("null", ""); // ибо я не знаю откуда этот null в начале при запусе for, поэтому я не нашел способа ениальнее )))
     }
 
     public static int getMonthSalary() {
@@ -66,8 +70,9 @@ public class Employee {
                 l = i;
             }
         }
-        return Information[l].replace("Name","");
+        return Information[l].replace("Name", "");
     }
+
     public static String maxMonthSalary() {
         int max = allSalaryMassive[0];
         int l = 0;
@@ -77,7 +82,7 @@ public class Employee {
                 l = i;
             }
         }
-        return Information[l].replace("Name","");
+        return Information[l].replace("Name", "");
     }
 
     public static int middleValueSalary() {
@@ -86,5 +91,13 @@ public class Employee {
 
     public static void space() {
         System.out.println();
+    }
+
+    public static String getFullNames() {
+        String information = "";
+        for (int i = 0; i < id  ; i++) {
+            information = information + "\n" + fullName[i];
+        }
+        return information;
     }
 }
