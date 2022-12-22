@@ -6,8 +6,11 @@ public class Employee {
     private int department;
     static int id = 0;
     String information;
+    private static int monthSalary = 0;
+    static String information1;
     public static String[] Employee = new String[10];
-
+    public static String[] Information = new String[10];
+    public static int[] allSalaryMassive = new int[10];
     public Employee(String name, int salary, int department) {
         if (department < 1 || department > 5) {
             throw new RuntimeException("ERROR");
@@ -16,7 +19,8 @@ public class Employee {
         this.salary = salary;
         this.department = department;
         information = "Name " + name + " , Salary " + salary + " , Department " + department;
-        Employee[id] = information;
+        Information[id] = information;
+        allSalaryMassive[id] = salary;
         id++;
     }
 
@@ -41,9 +45,16 @@ public class Employee {
     }
 
     public static String allToString() {
-        for (int i = 0; i < Employee.length; i++) {
-            return Employee[i];
+        for (int i = 0; i < id; i++) {
+           information1 = information1 + Information[i] + "\n";
         }
-        return Employee[id];
+        return information1;
+    }
+
+    public static int getMonthSalary() {
+        for (int i = 0; i < allSalaryMassive.length; i++) {
+            monthSalary = monthSalary + allSalaryMassive[i];
+        }
+        return monthSalary;
     }
 }
