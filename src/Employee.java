@@ -1,5 +1,3 @@
-import javax.swing.*;
-
 public class Employee {
     private String name;
     private int salary;
@@ -11,16 +9,15 @@ public class Employee {
     public static String[] Information = new String[10];
     public static String[] fullName = new String[10];
     public static int[] allSalaryMassive = new int[10];
-
     public Employee(String name, int salary, int department) {
         if (department < 1 || department > 5) {
             throw new RuntimeException("ERROR");
         }
+
         this.name = name;
         this.salary = salary;
         this.department = department;
-        information = "Name " + name + " , Salary " + salary + " , Department " + department + ".";
-        Information[id] = information;
+        Information[id] = "Name " + name + " , Salary " + salary + " , Department " + department + "."; ;
         fullName[id] = name;
         allSalaryMassive[id] = salary;
         id++;
@@ -37,13 +34,15 @@ public class Employee {
     public int getDepartment() {
         return department;
     }
-
     public void setSalary(int salary) {
         this.salary = salary;
     }
 
     public void setDepartment(int department) {
         this.department = department;
+    }
+    public static int getId() {
+        return id;
     }
 
     public static String allToString() {
@@ -88,11 +87,6 @@ public class Employee {
     public static int middleValueSalary() {
         return getMonthSalary() / id;
     }
-
-    public static void space() {
-        System.out.println();
-    }
-
     public static String getFullNames() {
         String information = "";
         for (int i = 0; i < id  ; i++) {
@@ -100,4 +94,14 @@ public class Employee {
         }
         return information;
     }
+
+   public static String percentsPerWorker(int i) {
+        String salarieDifferences = "";
+        int salarieDifferencesInt = 0;
+        for (int j = 0; j < id ; j++) {
+           salarieDifferencesInt = (allSalaryMassive[j] / 100 * (100 + i)) - allSalaryMassive[j];
+           salarieDifferences = salarieDifferences  + Information[j] + "  Difference for " + i + "%" +  "  is : " +  salarieDifferencesInt + "\n";
+        }
+        return salarieDifferences;
+   }
 }
