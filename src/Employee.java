@@ -1,5 +1,4 @@
 import javax.swing.*;
-
 public class Employee {
     private String name;
     private int salary;
@@ -79,5 +78,13 @@ public class Employee {
             }
         }
         return Information[l].replace("Name","");
+    }
+
+    public static int middleValueSalary() {
+        return getMonthSalary() / id;
+    }
+
+    public static void space() {
+        System.out.println();
     }
 }
