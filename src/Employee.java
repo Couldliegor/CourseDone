@@ -7,7 +7,6 @@ public class Employee {
     static int id = 0;
     String information;
     private static int monthSalary = 0;
-    static String information1;
     public static String[] Employee = new String[10];
     public static String[] Information = new String[10];
     public static int[] allSalaryMassive = new int[10];
@@ -18,7 +17,7 @@ public class Employee {
         this.name = name;
         this.salary = salary;
         this.department = department;
-        information = "Name " + name + " , Salary " + salary + " , Department " + department;
+        information = "Name " + name + " , Salary " + salary + " , Department " + department + ".";
         Information[id] = information;
         allSalaryMassive[id] = salary;
         id++;
@@ -45,10 +44,11 @@ public class Employee {
     }
 
     public static String allToString() {
+        String information1 = null;
         for (int i = 0; i < id; i++) {
            information1 = information1 + Information[i] + "\n";
         }
-        return information1;
+        return information1.replace("null" , ""); // ибо я не знаю откуда этот null в начале при запусе for, поэтому я не нашел способа ениальнее )))
     }
 
     public static int getMonthSalary() {
@@ -56,5 +56,17 @@ public class Employee {
             monthSalary = monthSalary + allSalaryMassive[i];
         }
         return monthSalary;
+    }
+
+    public static String minMonthSalary() {
+        int min = allSalaryMassive[0];
+        int l = 0;
+        for (int i = 0; i < id; i++) {
+            if (min > allSalaryMassive[i]) {
+                min = allSalaryMassive[i];
+                l = i;
+            }
+        }
+        return Information[l].replace("Name","");
     }
 }
