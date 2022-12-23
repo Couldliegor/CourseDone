@@ -1,14 +1,17 @@
+import java.util.Arrays;
+
 public class Employee {
     private String name;
     private int salary;
     private int department;
     static int id = 0;
-    String information;
+    static int massivesLenght = 10;//you can change this
     private static int monthSalary = 0;
-    public static String[] Employee = new String[10];
-    public static String[] Information = new String[10];
-    public static String[] fullName = new String[10];
-    public static int[] allSalaryMassive = new int[10];
+    public static String[] Information = new String[massivesLenght];
+    public static String[] fullName = new String[massivesLenght];
+    public static int[] allSalaryMassive = new int[massivesLenght];
+    private static int[] departmentMassive = new int[massivesLenght];
+
     public Employee(String name, int salary, int department) {
         if (department < 1 || department > 5) {
             throw new RuntimeException("ERROR");
@@ -17,7 +20,9 @@ public class Employee {
         this.name = name;
         this.salary = salary;
         this.department = department;
-        Information[id] = "Name " + name + " , Salary " + salary + " , Department " + department + "."; ;
+        departmentMassive[id] = department;
+        Information[id] = "Name " + name + " , Salary " + salary + " , Department " + department + ".";
+        ;
         fullName[id] = name;
         allSalaryMassive[id] = salary;
         id++;
@@ -34,6 +39,7 @@ public class Employee {
     public int getDepartment() {
         return department;
     }
+
     public void setSalary(int salary) {
         this.salary = salary;
     }
@@ -41,6 +47,7 @@ public class Employee {
     public void setDepartment(int department) {
         this.department = department;
     }
+
     public static int getId() {
         return id;
     }
@@ -87,21 +94,22 @@ public class Employee {
     public static int middleValueSalary() {
         return getMonthSalary() / id;
     }
+
     public static String getFullNames() {
         String information = "";
-        for (int i = 0; i < id  ; i++) {
+        for (int i = 0; i < id; i++) {
             information = information + "\n" + fullName[i];
         }
         return information;
     }
 
-   public static String percentsPerWorker(int i) {
+    public static String percentsPerWorker(int i) {
         String salarieDifferences = "";
         int salarieDifferencesInt = 0;
-        for (int j = 0; j < id ; j++) {
-           salarieDifferencesInt = (allSalaryMassive[j] / 100 * (100 + i)) - allSalaryMassive[j];
-           salarieDifferences = salarieDifferences  + Information[j] + "  Difference for " + i + "%" +  "  is : " +  salarieDifferencesInt + "\n";
+        for (int j = 0; j < id; j++) {
+            salarieDifferencesInt = (allSalaryMassive[j] / 100 * (100 + i)) - allSalaryMassive[j];
+            salarieDifferences = salarieDifferences + Information[j] + "  Difference for " + i + "%" + "  is : " + salarieDifferencesInt + "\n";
         }
         return salarieDifferences;
-   }
+    }
 }
